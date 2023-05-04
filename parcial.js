@@ -125,9 +125,10 @@ const Mostrar = () => {
         html += `<p>Codigo: ${disco.codigo}</p>`;
         html += `<hr>`;
         html += `Pista/s (${disco.pistas.length}):`
+        let duracionFormateada;
         for (const pista of disco.pistas) {
             html += `<ul><li><h4>Nombre: ${pista.nombre}<h4></li>`;
-            //let duracionFormateada =  pista.duracion>180? html += `<li class="duracionResaltado">Duración de la lista: ${pista.duracion}</li>`:
+            duracionFormateada =  pista.duracion>180? html += `<li class="duracionResaltado">Duración de la lista: ${pista.duracion}</li>`:
                 html += `<li>Duración de la pista: ${pista.duracion}</li>`;
             html += `</ul>`;
         }
