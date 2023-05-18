@@ -212,3 +212,40 @@ const buscarpistaMayorDuracion = (pistas) => {
 
     return pistaMayor;
 };
+const FiltrarPorCodigo = () => {
+    const codigoInput = document.getElementById('codigo-input').value;
+    const discosFiltrados = discos.filter((disco) => disco.codigo === parseInt(codigoInput));
+    MostrarDiscosFiltrados(discosFiltrados);
+};
+
+const MostrarDiscosFiltrados = (discosFiltrados) => {
+    let imgSrc = "img";
+    let html = `<h2>Discos filtrados (${discosFiltrados.length}):</h2>`;
+    html += `<div class="gallery">`;
+
+    for (const disco of discosFiltrados) {
+        html += `<spam>`;
+        html += `<img src="${imgSrc}/dummy-image.jpg" alt="imagen dummy">`;
+        html += `<p><h3>Nombre Álbum: ${disco.nombre}</h3></p>`;
+        html += `<p>Autor: ${disco.autor}</p>`;
+        html += `<p>Código: ${disco.codigo}</p>`;
+        html += `<hr>`;
+        html += `Pista/s (${disco.pistas.length}):`
+        let duracionFormateada;
+        for (const pista of disco.pistas) {
+            html += `<ul><li><h4>Nombre: ${pista.nombre}<h4></li>`;
+            duracionFormateada = pista.duracion > 180 ? `<li class="duracionResaltado">Duración de la lista: ${pista.duracion}</li>` :
+                `<li>Duración de la pista: ${pista.duracion}</li>`;
+            html += `${duracionFormateada}</ul>`;
+        }
+        html += `<hr>`;
+        html += `<ul><li>Duración total del disco: (${disco.duracion}):</li>`
+        html += `<li>Promedio duración: (${Math.round(disco.duracion / discosFiltrados.length)}):</li>`
+        html += `<li>Nombre de la pista de mayor duración: (${disco.pistaMayorDuracion})</li></ul>`
+        html += `</spam>`;
+    }
+
+    html += `</div>`;
+
+    document.getElementById('info').innerHTML = html;
+};
