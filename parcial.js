@@ -83,13 +83,13 @@ const Cargar = () => {
     do {
         let pistaInput;
         do {
-            pistaInput = prompt('Ingrese nombre de la pista');
+            pistaInput = prompt('Ingrese nombre de la pista:');
         }while(validarTextos(pistaInput,'Nombre pista'));
 
         let duracionInput;
 
         do {
-             duracionInput = parseInt(prompt('Ingrese duracion'));
+             duracionInput = parseInt(prompt('Ingrese duracion:'));
         }while(validarNumerosyRangos(duracionInput,'duracion'));
         duracionTotal+=duracionInput;
         let pistaobj = new pista(pistaInput, duracionInput);
@@ -103,7 +103,7 @@ const Cargar = () => {
     duracionTotal=0;
     let discosCargados = validarDiscos(discos); // llama a la función validar y guarda el resultado en una variable
     if (!discosCargados) {
-        alert('Debe cargar al menos un disco para continuar');
+        alert('Debe cargar al menos un disco para continuar!');
     }
 };
 
