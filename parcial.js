@@ -70,7 +70,7 @@ const Cargar = () => {
 
     let autor;
         do {
-            autor= prompt('Ingrese nombre del autor');
+            autor= prompt('Ingrese nombre del autor:');
         }while(validarTextos(autor,'Nombre autor'))
 
     let codigo;
